@@ -44,3 +44,18 @@ class Ogre(Enemy):
                          damage=15)
 
 # is_alive() method for Ogre and GiantSpider are inherited from superclass
+
+class Rat(Enemy):
+    """Rat Enemy Class"""
+    def __init__(self):
+        super().__init__(name="Rat",
+                         hp=5,
+                         damage=1)
+
+
+class BlueDragon(Enemy):
+    """Blue Dragon Boss Class"""
+    def __init__(self):
+        super().__init__(name="Blue Dragon",
+                         hp=100,
+                         damage=30)
