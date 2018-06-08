@@ -1,7 +1,6 @@
 """ The base item class """
 class Item():
-    """
-    The base class for all items
+    """The base class for all items
 
     Parameters
     ----------
@@ -33,19 +32,7 @@ class Item():
 
 
 class Gold(Item):
-    """Gold item class
-
-    Parameters
-    ----------
-    amt : integer
-        The amount of gold coins
-
-    Attributes
-    ----------
-    amt
-    amt
-
-    """
+    """Gold item class"""
     def __init__(self, amt):
         self.amt = amt
         super().__init__(name='Gold', description='A round, golden coin', value=self.amt)
