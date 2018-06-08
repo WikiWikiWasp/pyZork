@@ -31,7 +31,7 @@ class Item():
             self.description,
             self.value)
 
-""" Gold class """
+
 class Gold(Item):
     """Gold item class
 
