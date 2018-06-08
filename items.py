@@ -19,7 +19,7 @@ class Item():
     value
 
     """
-    
+
     def __init__(self, name, description, value):
         self.name = name
         self.description = description
@@ -30,3 +30,22 @@ class Item():
             self.name,
             self.description,
             self.value)
+
+""" Gold class """
+class Gold(Item):
+    """Gold item class
+
+    Parameters
+    ----------
+    amt : integer
+        The amount of gold coins
+
+    Attributes
+    ----------
+    amt
+    amt
+
+    """
+    def __init__(self, amt):
+        self.amt = amt
+        super().__init__(name='Gold', description='A round, golden coin', value=self.amt)
