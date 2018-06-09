@@ -61,3 +61,17 @@ class LootRoom(MapTile):
     def modify_player(self, player):
         """runs the add_loot method"""
         self.add_loot(player)
+
+
+class EnemyRoom(MapTile):
+    """Room tile with enemy encounter"""
+    def __init__(self, x, y, enemy):
+        self.enemy = enemy
+        super().__init__(x, y)
+
+    def modify_player(self, player):
+        """Player takes damage from enemy in room"""
+        if self.enemy.is_alive():
+            player.hp = player.hp - self.enemy.damage
+            print("Enemy does {} damage.".format(self.enemy.damage))
+            print("You have {} HP remaining.".format(player.hp))
