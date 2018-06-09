@@ -1,8 +1,8 @@
 import enemies, items
 
 class MapTile:
-    """The MapTile class is going to provide a template for all of the tiles
-    in the world.
+    """This abstract MapTile class is going to provide a template for all of the tiles in the world.
+    This abstract base class should not be used to instantiate any base maptile object. Use the specific subclass tiles instead
 
     Parameters
     ----------
@@ -31,3 +31,16 @@ class MapTile:
     def modify_player(self, player):
         """Moves player to new tiles"""
         raise NotImplementedError()
+
+
+class StartingRoom(MapTile):
+    """Starting room tile"""
+    def intro_text(self):
+        return """
+        You find yourself in a cave with a flickering torch on the wall.
+        You can make out four paths, each equally as dark and forboding.
+        """
+
+    def modify_player(self, player):
+        # Room has no action on player
+        pass
