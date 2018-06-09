@@ -1,4 +1,4 @@
-import enemies, items
+import enemies, items, time
 
 class MapTile:
     """This abstract MapTile class is going to provide a template for all of the tiles in the world.
@@ -75,3 +75,43 @@ class EnemyRoom(MapTile):
             player.hp = player.hp - self.enemy.damage
             print("Enemy does {} damage.".format(self.enemy.damage))
             print("You have {} HP remaining.".format(player.hp))
+
+
+class EmptyCavePath(MapTile):
+    """Filler room with nothing interesting"""
+    def intro_text(self):
+        return """
+        Another unremarkable part of the cave. You must forge onwards.
+        """
+
+    def modify_player(self, player):
+        # Room has no action on Player
+        pass
+
+
+class GiantSpiderRoom(EnemyRoom):
+    """Enemy Room with Giant Spider"""
+    def __init__(self, x, y):
+        super().__init__(x, y, enemies.GiantSpider())
+
+    def intro_text(self):
+        if self.enemy.is_alive():
+            return """
+            A giant spider jumps down from its web in front of you!
+            """
+        else:
+            return """
+            The corpse of a dead spider rots on the ground.
+            """
+
+class FindDaggerRoom(LootRoom):
+    """Item Room with Dagger"""
+    def __init__(self, x, y):
+        super().__init__(x, y, items.Dagger())
+
+    def intro_text(self):
+        # TODO: add .sleep() method from time lib to add pause between output
+        return """
+        You notice something shiny in the corner...
+        It's a dagger! You pick it up.
+        """
